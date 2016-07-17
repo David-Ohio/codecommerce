@@ -3,6 +3,10 @@
   <data-source name="Sqlite (Xerial) - database.sqlite" uuid="d5901f84-c64d-4bd1-81a1-601c23fc2979">
     <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
-    <schema name="" catalog=""/>
+    <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
+      <schema id="1">
+        <visible>1</visible>
+      </schema>
+    </database-model>
   </data-source>
 </component>
