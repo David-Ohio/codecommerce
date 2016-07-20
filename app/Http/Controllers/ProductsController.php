@@ -9,16 +9,16 @@ use CodeCommerce\Product;
 
 class ProductsController extends Controller
 {
-	private $products;
+	private $productsModel;
 	
 	public function __construct(Product $product)
 	{
-		$this->products = $product;
+		$this->productsModel = $product;
 	}
 	
 	public function index(){
 		
-		$products = $this->products->all();
+		$products = $this->productsModel->all();
 		
 	    return view('products.index', compact('products'));
     }
@@ -29,23 +29,29 @@ class ProductsController extends Controller
 	
 	public function store(ProductRequest $request){
 		$input = $request->all();
-		$product = $this->products->fill($input);
+		$input['featured'] = $request->get('featured') ? true : false;
+		$input['recommended'] = $request->get('recommended') ? true : false;
+		$product = $this->productsModel->fill($input);
 		$product->save();
 		return redirect()->route('products');
 	}
 	
 	public function destroy($id){
-		$this->products->find($id)->delete();
+		$this->productsModel->find($id)->delete();
 		return redirect()->route('products');
 	}
 	
 	public function edit($id){
-		$product = $this->products->find($id);
+		$product = $this->productsModel->find($id);
 		return view('products.edit',compact('product'));
 	}
 	
 	public function update(ProductRequest $request, $id){
-		$this->products->find($id)->update($request->all());
+		$input = $request->all();
+		$input['featured'] = $request->get('featured') ? true : false;
+		$input['recommended'] = $request->get('recommended') ? true : false;
+		
+		$this->productsModel->find($id)->update($input);
 		return redirect()->route('products');
 	}
 }

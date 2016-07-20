@@ -13,21 +13,24 @@
 	use Illuminate\Database\Eloquent\Model;
 	use CodeCommerce\Category;
 	use Illuminate\Support\Facades\DB;
+	use CodeCommerce\User;
 	use Faker\Factory as Faker;
+	use Illuminate\Support\Facades\Hash;
 	
-	class CategoryTableSeed extends Seeder
+	class UserTableSeed extends Seeder
 	{
 		public function run()
 		{
 			// TODO: Implement run() method.
-			DB::table('categories')->truncate();
+			DB::table('users')->truncate();
 			
 			$faker = Faker::create();
 			
 			foreach (range(1,15) as $i){
-				Category::create([
-					'name' => $faker->word(),
-					'description'=> $faker->sentence()
+				User::create([
+					'name' => $faker->name(),
+					'email'=> $faker->email(),
+					'email'=> Hash::make($faker->word())
 				]);
 			}
 			

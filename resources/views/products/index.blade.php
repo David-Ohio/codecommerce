@@ -22,8 +22,8 @@
                     <td>{{$product->name}}</td>
                     <td>{{$product->description}}</td>
                     <td>{{$product->price}}</td>
-                    <td>{{$product->featured}}</td>
-                    <td>{{$product->recommended}}</td>
+                    <td>{{$product->featured ? "true" : "false"}}</td>
+                    <td>{{$product->recommended  ? "true" : "false"}}</td>
                     <td>
                         <a href="{{ route('products.edit',['id'=>$product->id]) }}">Edit</a> |
                         <a href="{{ route('products.destroy',['id'=>$product->id]) }}">Delete</a>

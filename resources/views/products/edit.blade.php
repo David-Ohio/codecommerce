@@ -6,8 +6,8 @@
             <h1>Edit Category: {{$product->name}}</h1>
             @if($errors->any())
                 <ul class="alert">
-                    @foreach($errors->all() as $erro)
-                        <li>{{$erro}}</li>
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
                     @endforeach
                 </ul>
             @endif
@@ -25,10 +25,10 @@
                 {!! Form::text('price',$product->price,['class'=>'form-control'])!!}
             </div>
             <div class="form-group">
-                {!! Form::label('Featured:')!!} {!! Form::checkbox('featured')!!}
+                {!! Form::label('Featured:')!!} {!! Form::checkbox('featured','featured',$product->featured)!!}
             </div>
             <div class="form-group">
-                {!! Form::label('Recommended:')!!} {!! Form::checkbox('recommended')!!}
+                {!! Form::label('Recommended:')!!} {!! Form::checkbox('recommended','recommended',$product->recommended)!!}
             </div>
             <div class="form-group">
                 {!! Form::submit('Save Product', ['class'=>'btn btn-primary']) !!}

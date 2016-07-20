@@ -27,6 +27,7 @@ class ProductRequest extends Request
 	            'name' => 'required',
 	            'description' => 'required',
 	            'price' => 'required',
+
             ];
      
     }
