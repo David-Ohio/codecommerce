@@ -11,18 +11,18 @@
 	
 	use Illuminate\Database\Seeder;
 	use Illuminate\Database\Eloquent\Model;
-	use CodeCommerce\Category;
+	use CodeCommerce\Product;
 	use Illuminate\Support\Facades\DB;
 	use Faker\Factory as Faker;
 	
-	class CategoryTableSeed extends Seeder
+	class ProductTableSeed extends Seeder
 	{
 		public function run()
 		{
 			// TODO: Implement run() method.
 			//DB::table('categories')->truncate();
 			
-			factory('CodeCommerce\Category', 15)->create();
+			factory('CodeCommerce\Product', 15)->create();
 			
 			/*foreach (range(1,15) as $i){
 				Category::create([

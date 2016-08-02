@@ -26,13 +26,20 @@
 			
 			$faker = Faker::create();
 			
-			foreach (range(1,15) as $i){
+			/*foreach (range(1,10) as $i){
 				User::create([
 					'name' => $faker->name(),
 					'email'=> $faker->email(),
-					'email'=> Hash::make($faker->word())
+					'password'=>Hash::make($faker->word())
 				]);
 			}
+			*/
 			
+			factory('CodeCommerce\User')->create([
+				'name'=>'David',
+				'email'=>'ohio@ohiotech.com.br',
+				'password'=> Hash::make(123456),
+			]);
+			factory('CodeCommerce\User', 10)->create();
 		}
 	}

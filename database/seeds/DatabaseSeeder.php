@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use database\seeds\CategoryTableSeed;
+	use database\seeds\ProductTableSeed;
 use database\seeds\UserTableSeed;
 	
 class DatabaseSeeder extends Seeder
@@ -13,7 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UserTableSeed::class);
 	    $this->call(CategoryTableSeed::class);
+	    $this->call(ProductTableSeed::class);
+	    $this->call(UserTableSeed::class);
     }
 }
