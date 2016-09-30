@@ -20,7 +20,7 @@
 		}
 
 		public function index(){
-			$product = $this->product->all();
+			$product = $this->product->paginate(10);
 			return view('product', compact('product'));
 		}
 	}

@@ -22,7 +22,7 @@
 		}
 		
 		public function index(){
-			$categories = $this->categories->all();
+			$categories = $this->categories->paginate(10);
 			return view('categories', compact('categories'));
 		}
 	}

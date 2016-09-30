@@ -25,6 +25,6 @@
                 </tr>
                 @endforeach
             </table>
-
+            {!! $category->render() !!}
         </div>
     @endsection
